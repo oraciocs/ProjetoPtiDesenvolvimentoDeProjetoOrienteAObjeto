@@ -27,4 +27,32 @@
 **Ele mostra funcionalidades (casos de uso) representadas como ações que atendem às necessidades dos atores. Seu foco é o que o sistema deve fazer, e não como será implementado. Serve para levantar requisitos funcionais, facilitar o entendimento do sistema e apoiar a comunicação entre equipe técnica e usuários.**<br><br>
 **Figura 1. Diagrama de Caso de Uso – Sistema Universidade**<br><br>
 
-![Diagrama de Caso de Uso](/diagrams_phase1/casodeusosistemauniversidade.png)
+![Diagrama de Caso de Uso](/diagrams_phase1/casodeusosistemauniversidade.png) <br><br><br>
+
+## Descrição dos Cenários dos Casos de Uso Construídos:
+
+**Neste tópico, apresentam-se as descrições detalhadas dos casos de uso definidos no diagrama elaborado anteriormente. Cada caso contempla cenário principal, cenários alternativos, pré-condições e pós-condições, visando demonstrar como o sistema deve se comportar em diferentes situações. A seguir:**<br><br>
+
+### Cadastrar Pessoa Física
+
+**Ator: Gestão Acadêmica**<br><br>
+**• Pré-condição: O administrador deve estar autenticado e possuir permissão de cadastro.**<br><br>
+**• Cenário Principal:**<br><br><br>
+**1. O ator acessa a funcionalidade “Cadastrar Pessoa Física”.**<br><br>
+**2. O sistema exibe formulário com campos obrigatórios (nome, CPF, endereço, e-mail, telefone).**<br><br>
+**3. O ator insere os dados e envia a solicitação.**<br><br>
+**4. O sistema valida duplicidade de CPF.**<br><br>
+**5. O cadastro é confirmado e armazenado.**<br><br><br>
+**• Cenários Alternativos:**<br><br><br>
+**o A1: Caso o CPF já exista, o sistema rejeita e informa duplicidade.**<br><br>
+**o A2: Se algum campo obrigatório não for preenchido, o sistema solicita correção.**<br><br>
+**• Pós-condição: Pessoa Física registrada no sistema, disponível para associação a aluno ou professor.**<br><br><br>
+
+**Tela de Login**<br><br>
+![Tela de Login](/prototipos_interface/1teladelogin.png) <br><br><br>
+
+**Tela do Dashboard**<br><br>
+![Tela de Login](/prototipos_interface/2dashboard.png) <br><br><br>
+
+**Tela Cadastro Pessoa Física**<br><br>
+![Tela de Login](/prototipos_interface/3cadastropessoafisica.png) <br><br><br>
