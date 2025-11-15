@@ -1,47 +1,29 @@
--- Inserir pessoa física
-INSERT INTO Pessoa_Fisica (nome, cpf, data_nascimento, email, telefone)
-VALUES ();
+-- Inserir dados em Pessoa
+INSERT INTO Pessoa (nome, endereco) VALUES (...);
 
--- Inserir pessoa jurídica
-INSERT INTO Pessoa_Juridica (razao_social, cnpj, email, telefone)
-VALUES ();
+-- Pessoa Física
+INSERT INTO PessoaFisica (id, cpf, dataNascimento) VALUES (...);
 
--- Inserir aluno
-INSERT INTO Aluno (id_pf, matricula, curso)
-VALUES ();
+-- Pessoa Jurídica
+INSERT INTO PessoaJuridica (id, cnpj, razaoSocial) VALUES (...);
 
--- Inserir professor
-INSERT INTO Professor (id_pf, especialidade)
-VALUES ();
+-- Fornecedor
+INSERT INTO Fornecedor (id, produto) VALUES (...);
 
--- Inserir funcionário
-INSERT INTO Funcionario (id_pf, cargo, salario)
-VALUES ();
+-- Professor
+INSERT INTO Professor (id, disciplina) VALUES (...);
 
--- Inserir fornecedor
-INSERT INTO Fornecedor (id_pj, tipo)
-VALUES ();
+-- Aluno
+INSERT INTO Aluno (id, matricula, curso) VALUES (...);
 
--- Inserir patrimônio
-INSERT INTO Patrimonio (descricao, estado, valor, data_aquisicao)
-VALUES ();
+-- Funcionário
+INSERT INTO Funcionario (id, cargo) VALUES (...);
 
--- Inserir compra
-INSERT INTO Compra (id_fornecedor, data_compra, valor_total)
-VALUES ();
+-- Biblioteca
+INSERT INTO Biblioteca (nome) VALUES (...);
 
--- Inserir item de compra
-INSERT INTO Item_Compra (id_compra, descricao, quantidade, valor_unitario)
-VALUES ();
+-- Livro
+INSERT INTO Livro (autor, isbn, status, biblioteca_id) VALUES (...);
 
--- Inserir livro
-INSERT INTO Livro (titulo, autor, ano, quantidade)
-VALUES ();
-
--- Inserir empréstimo
-INSERT INTO Emprestimo (id_livro, id_aluno, data_saida, data_retorno)
-VALUES ();
-
--- Inserir pagamento
-INSERT INTO Pagamento (id_pf, id_pj, valor, data_pagamento, tipo)
-VALUES ();
+-- Empréstimo
+INSERT INTO Emprestimo (aluno_id, livro_id, dataEmprestimo, dataDevolucao, status) VALUES (...);
