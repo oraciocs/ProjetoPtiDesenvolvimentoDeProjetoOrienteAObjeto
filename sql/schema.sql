@@ -1,110 +1,91 @@
-CREATE TABLE Pessoa_Fisica (
-    id_pf INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(120) NOT NULL,
-    cpf VARCHAR(14) UNIQUE NOT NULL,
-    data_nascimento DATE,
-    email VARCHAR(120),
-    telefone VARCHAR(20)
+CREATE TABLE Pessoa (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    endereco VARCHAR(200),
+    email VARCHAR(100)
 );
 
-CREATE TABLE Pessoa_Juridica (
-    id_pj INT PRIMARY KEY AUTO_INCREMENT,
-    razao_social VARCHAR(150) NOT NULL,
-    cnpj VARCHAR(18) UNIQUE NOT NULL,
-    email VARCHAR(120),
-    telefone VARCHAR(20)
+CREATE TABLE PessoaFisica (
+    id_pf INTEGER PRIMARY KEY,
+    cpf VARCHAR(20) NOT NULL UNIQUE,
+    dataNascimento DATE,
+    FOREIGN KEY (id_pf) REFERENCES Pessoa(id)
 );
 
--- ALUNO
-CREATE TABLE Aluno (
-    id_aluno INT PRIMARY KEY AUTO_INCREMENT,
-    id_pf INT NOT NULL,
-    matricula VARCHAR(20) UNIQUE NOT NULL,
-    curso VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id_pf) REFERENCES Pessoa_Fisica(id_pf)
+CREATE TABLE PessoaJuridica (
+    id_pj INTEGER PRIMARY KEY,
+    cnpj VARCHAR(20) NOT NULL UNIQUE,
+    razaoSocial VARCHAR(150),
+    inscricaoEstadual VARCHAR(50),
+    FOREIGN KEY (id_pj) REFERENCES Pessoa(id)
 );
 
--- PROFESSOR
-CREATE TABLE Professor (
-    id_professor INT PRIMARY KEY AUTO_INCREMENT,
-    id_pf INT NOT NULL,
-    especialidade VARCHAR(120),
-    FOREIGN KEY (id_pf) REFERENCES Pessoa_Fisica(id_pf)
-);
-
--- FUNCIONÁRIO
-CREATE TABLE Funcionario (
-    id_funcionario INT PRIMARY KEY AUTO_INCREMENT,
-    id_pf INT NOT NULL,
-    cargo VARCHAR(80),
-    salario DECIMAL(10,2),
-    FOREIGN KEY (id_pf) REFERENCES Pessoa_Fisica(id_pf)
-);
-
--- FORNECEDOR (ligado a pessoa jurídica)
 CREATE TABLE Fornecedor (
-    id_fornecedor INT PRIMARY KEY AUTO_INCREMENT,
-    id_pj INT NOT NULL,
-    tipo VARCHAR(80),
-    FOREIGN KEY (id_pj) REFERENCES Pessoa_Juridica(id_pj)
+    id_fornecedor SERIAL PRIMARY KEY,
+    produto VARCHAR(100),
+    id_pj INTEGER,
+    FOREIGN KEY (id_pj) REFERENCES PessoaJuridica(id_pj)
 );
 
--- PATRIMÔNIO
-CREATE TABLE Patrimonio (
-    id_patrimonio INT PRIMARY KEY AUTO_INCREMENT,
-    descricao VARCHAR(150) NOT NULL,
-    estado VARCHAR(40),
-    valor DECIMAL(10,2),
-    data_aquisicao DATE
-);
-
--- COMPRA
-CREATE TABLE Compra (
-    id_compra INT PRIMARY KEY AUTO_INCREMENT,
-    id_fornecedor INT NOT NULL,
-    data_compra DATE NOT NULL,
-    valor_total DECIMAL(12,2),
-    FOREIGN KEY (id_fornecedor) REFERENCES Fornecedor(id_fornecedor)
-);
-
--- ITENS DA COMPRA
-CREATE TABLE Item_Compra (
-    id_item INT PRIMARY KEY AUTO_INCREMENT,
-    id_compra INT NOT NULL,
-    descricao VARCHAR(150),
-    quantidade INT NOT NULL,
-    valor_unitario DECIMAL(10,2),
-    FOREIGN KEY (id_compra) REFERENCES Compra(id_compra)
-);
-
--- LIVROS
 CREATE TABLE Livro (
-    id_livro INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(150) NOT NULL,
+    id_livro SERIAL PRIMARY KEY,
+    titulo VARCHAR(150),
     autor VARCHAR(100),
-    ano INT,
-    quantidade INT NOT NULL
+    isbn VARCHAR(40),
+    status VARCHAR(30)
 );
 
--- EMPRÉSTIMOS
+CREATE TABLE Biblioteca (
+    id_biblioteca SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    localizacao VARCHAR(150)
+);
+
+CREATE TABLE BibliotecaLivro (
+    id_biblioteca INTEGER,
+    id_livro INTEGER,
+    PRIMARY KEY (id_biblioteca, id_livro),
+    FOREIGN KEY (id_biblioteca) REFERENCES Biblioteca(id_biblioteca),
+    FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
+);
+
 CREATE TABLE Emprestimo (
-    id_emprestimo INT PRIMARY KEY AUTO_INCREMENT,
-    id_livro INT NOT NULL,
-    id_aluno INT NOT NULL,
-    data_saida DATE NOT NULL,
-    data_retorno DATE,
-    FOREIGN KEY (id_livro) REFERENCES Livro(id_livro),
-    FOREIGN KEY (id_aluno) REFERENCES Aluno(id_aluno)
+    id_emprestimo SERIAL PRIMARY KEY,
+    dataEmprestimo DATE,
+    dataDevolucao DATE,
+    status VARCHAR(20),
+    id_biblioteca INTEGER,
+    id_livro INTEGER,
+    FOREIGN KEY (id_biblioteca) REFERENCES Biblioteca(id_biblioteca),
+    FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
 );
 
--- CONTROLE FINANCEIRO
-CREATE TABLE Pagamento (
-    id_pagamento INT PRIMARY KEY AUTO_INCREMENT,
-    id_pf INT,
-    id_pj INT,
-    valor DECIMAL(10,2) NOT NULL,
-    data_pagamento DATE NOT NULL,
-    tipo VARCHAR(40), -- mensalidade, compra, serviço, salário
-    FOREIGN KEY (id_pf) REFERENCES Pessoa_Fisica(id_pf),
-    FOREIGN KEY (id_pj) REFERENCES Pessoa_Juridica(id_pj)
+CREATE TABLE Professor (
+    id_professor INTEGER PRIMARY KEY,
+    disciplina VARCHAR(100),
+    cargaHoraria INTEGER,
+    FOREIGN KEY (id_professor) REFERENCES PessoaFisica(id_pf)
+);
+
+CREATE TABLE Aluno (
+    id_aluno INTEGER PRIMARY KEY,
+    matricula VARCHAR(50),
+    curso VARCHAR(100),
+    status VARCHAR(30),
+    FOREIGN KEY (id_aluno) REFERENCES PessoaFisica(id_pf)
+);
+
+CREATE TABLE Funcionario (
+    id_funcionario INTEGER PRIMARY KEY,
+    cargo VARCHAR(100),
+    salario DOUBLE PRECISION,
+    FOREIGN KEY (id_funcionario) REFERENCES PessoaFisica(id_pf)
+);
+
+CREATE TABLE FornecedorLivros (
+    id_fornecedor INTEGER,
+    id_livro INTEGER,
+    PRIMARY KEY (id_fornecedor, id_livro),
+    FOREIGN KEY (id_fornecedor) REFERENCES Fornecedor(id_fornecedor),
+    FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
 );
