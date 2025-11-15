@@ -56,3 +56,25 @@
 
 **Tela Cadastro Pessoa Física**<br><br>
 ![Tela de Login](/prototipos_interface/3cadastropessoafisica.png) <br><br><br>
+
+## Cadastrar Aluno
+
+**Ator: Gestão Acadêmica**<br><br>
+**• Pré-condição: Pessoa Física deve estar previamente cadastrada.**<br><br>
+**• Cenário Principal:**<br><br>
+**1. O ator seleciona “Cadastrar Aluno”.**<br><br>
+**2. O sistema solicita vínculo com Pessoa Física existente.**
+**3. São adicionados dados acadêmicos (curso, matrícula, turma).**
+**4. O sistema valida matrícula e registra o aluno.**
+**5. Confirmação exibida ao usuário.**<br><br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: Se a pessoa não estiver cadastrada, o sistema exige cadastro prévio.**<br><br>
+**o A2: Caso a matrícula já exista, o cadastro é bloqueado.**<br><br>
+**• Pós-condição: Aluno registrado e habilitado para controle acadêmico.**<br><br>
+
+**Tela Cadastro Pessoa Física**<br><br>
+![Tela de Login](/prototipos_interface/6cadastrodoaluno.png) <br><br><br>
+
+## Cadastrar Professor
+
+
