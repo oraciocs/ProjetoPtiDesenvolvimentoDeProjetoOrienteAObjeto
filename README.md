@@ -75,6 +75,9 @@
 **Tela Cadastrar Aluno**<br><br>
 ![Tela Cadastrar Aluno](/prototipos_interface/6cadastrodoaluno.png) <br><br><br>
 
+**Tela Sucesso no Cadastro**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/10teladesucesso.png) <br><br><br>
+
 ## Cadastrar Professor
 
 **Ator: Gestão Acadêmica**<br><br>
@@ -91,6 +94,9 @@
 
 **Tela Cadastrar Professor**<br><br>
 ![Tela Cadastrar Professor](/prototipos_interface/5cadastroprofessor.png) <br><br><br>
+
+**Tela Sucesso no Cadastro**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/10teladesucesso.png) <br><br><br>
 
 ## Controle Financeiro
 
@@ -144,6 +150,15 @@
 **o A1: Fornecedor inexistente.**<br><br>
 **o A2: Compra não autorizada pelo orçamento.**<br><br>
 **• Pós-condição: Fornecedor e compras armazenados corretamente.**<br><br>
+
+**Tela Cadastro Pessoa Jurídica**<br><br>
+![Tela Cadastro Pessoa Jurídica](/prototipos_interface/7cadastropessoajuridica.png) <br><br><br>
+
+**Tela Sucesso no Cadastro**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/10teladesucesso.png) <br><br><br>
+
+**Tela Buscar Pessoa Jurídica**<br><br>
+![Tela Buscar Pessoa Jurídica](/prototipos_interface/8paginadebusca.png) <br><br><br>
 
 ## Diagrama de Classe
 
