@@ -25,7 +25,7 @@
 
 **Um diagrama de caso de uso é um diagrama da UML que descreve as interações entre atores externos (usuários ou sistemas) e o sistema em desenvolvimento.**<br></br>
 **Ele mostra funcionalidades (casos de uso) representadas como ações que atendem às necessidades dos atores. Seu foco é o que o sistema deve fazer, e não como será implementado. Serve para levantar requisitos funcionais, facilitar o entendimento do sistema e apoiar a comunicação entre equipe técnica e usuários.**<br><br>
-**Figura 1. Diagrama de Caso de Uso – Sistema Universidade**<br><br>
+**Diagrama de Caso de Uso – Sistema Universidade**<br><br>
 
 ![Diagrama de Caso de Uso](/diagrams_phase1/casodeusosistemauniversidade.png) <br><br><br>
 
@@ -52,10 +52,10 @@
 ![Tela de Login](/prototipos_interface/1teladelogin.png) <br><br><br>
 
 **Tela do Dashboard**<br><br>
-![Tela de Login](/prototipos_interface/2dashboard.png) <br><br><br>
+![Tela de dashboard](/prototipos_interface/2dashboard.png) <br><br><br>
 
 **Tela Cadastro Pessoa Física**<br><br>
-![Tela de Login](/prototipos_interface/3cadastropessoafisica.png) <br><br><br>
+![Tela Cadastro Pessoa Física](/prototipos_interface/3cadastropessoafisica.png) <br><br><br>
 
 ## Cadastrar Aluno
 
@@ -72,9 +72,101 @@
 **o A2: Caso a matrícula já exista, o cadastro é bloqueado.**<br><br>
 **• Pós-condição: Aluno registrado e habilitado para controle acadêmico.**<br><br>
 
-**Tela Cadastro Pessoa Física**<br><br>
-![Tela de Login](/prototipos_interface/6cadastrodoaluno.png) <br><br><br>
+**Tela Cadastrar Aluno**<br><br>
+![Tela Cadastrar Aluno](/prototipos_interface/6cadastrodoaluno.png) <br><br><br>
 
 ## Cadastrar Professor
 
+**Ator: Gestão Acadêmica**<br><br>
+**• Pré-condição: Pessoa Física cadastrada.**<br><br><br>
+**• Cenário Principal:**<br><br>
+**1. O ator acessa “Cadastrar Professor”.**<br><br>
+**2. O sistema solicita vínculo com pessoa existente.**<br><br>
+**3. Dados acadêmicos são preenchidos (formação, disciplinas, carga horária).**<br><br>
+**4. O sistema valida e confirma o registro.**<br><br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: Caso a pessoa não exista, cadastro deve ser feito previamente.**<br><br>
+**o A2: Se já houver vínculo como professor, o sistema rejeita duplicidade.**<br><br>
+**• Pós-condição: Professor habilitado no sistema.**<br><br>
 
+**Tela Cadastrar Professor**<br><br>
+![Tela Cadastrar Professor](/prototipos_interface/5cadastroprofessor.png) <br><br><br>
+
+## Controle Financeiro
+
+**Ator: Gestão Financeira**<br><br>
+**• Pré-condição: Acesso liberado ao módulo financeiro.**<br><br><br>
+**• Cenário Principal:**<br><br>
+**1. O ator acessa relatórios financeiros.**<br><br>
+**2. O sistema permite lançamento de receitas, despesas e fechamento de caixa.**<br><br>
+**3. O sistema armazena informações no banco de dados.**<br><br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: Caso haja inconsistência nos dados lançados, sistema solicita revisão.**<br><br>
+**o A2: Falha de comunicação com o banco de dados, operação é suspensa.**<br><br>
+**• Pós-condição: Dados financeiros atualizados.**<br><br>
+
+## Controle de Livros / Empréstimos
+
+**Ator: Biblioteca**<br><br>
+**• Pré-condição: Usuários e livros cadastrados.**<br><br>
+**• Cenário Principal: Registrar e controlar empréstimos e devoluções.**<br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: Livro indisponível para empréstimo.**<br><br>
+**o A2: Usuário em situação irregular (atraso ou multa).**<br><br>
+**• Pós-condição: Acervo atualizado.**<br><br>
+
+## Cadastrar Funcionário / Controlar Funcionários
+
+**Ator: Gestão Administrativa**<br><br>
+**• Pré-condição: Administrador autenticado.**<br><br>
+**• Cenário Principal: Registrar funcionários e gerenciar dados funcionais.**<br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: CPF duplicado.**<br><br>
+**o A2: Falha no registro.**<br><br>
+**• Pós-condição: Funcionário habilitado para operações administrativas.**<br><br>
+
+## Controle de Patrimônio
+
+**Ator: Gestão Administrativa**<br><br>
+**• Pré-condição: Acesso concedido ao módulo administrativo.**<br><br>
+**• Cenário Principal: Registrar bens patrimoniais (equipamentos, móveis, etc.).**<br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: Bem já registrado.**<br><br>
+**o A2: Dados incompletos ou inválidos.**<br><br>
+**• Pós-condição: Patrimônio registrado e controlado.**<br><br>
+
+## Controle de Compras
+
+**Ator: Gestão Administrativa**<br><br>
+**• Pré-condição: Pessoa Jurídica cadastrada.**<br><br>
+**• Cenário Principal: Registrar fornecedores e compras realizadas.**<br><br>
+**• Cenários Alternativos:**<br><br>
+**o A1: Fornecedor inexistente.**<br><br>
+**o A2: Compra não autorizada pelo orçamento.**<br><br>
+**• Pós-condição: Fornecedor e compras armazenados corretamente.**<br><br>
+
+## Diagrama de Classe
+
+**O diagrama de classes é um tipo de diagrama da UML que representa a estrutura estática de um sistema. Ele mostra classes, atributos, métodos e relacionamentos (como herança, associação e composição). Seu objetivo é modelar a visão conceitual e lógica do sistema, servindo de base para análise e projeto de software. Facilita a comunicação entre desenvolvedores e stakeholders, além de apoiar a implementação orientada a objetos.**<br><br><br>
+
+**Diagrama de Classes – Sistema Universidade**<br><br>
+![Diagrama de Classes - Sistema Universidade](/diagrams_phase1/diagramadeclasse.png) <br><br><br>
+
+## CONCLUSÃO
+
+**O projeto proposto utiliza a UML (Linguagem Unificada de Modelagem) para estruturar e detalhar os casos de uso de um sistema de gestão para uma universidade, demonstrando a importância de uma abordagem visual e organizada no desenvolvimento de software. Os casos de uso apresentados, como o cadastro de pessoas físicas, jurídicas, professores, alunos e fornecedores, exemplificam como a UML pode ser aplicada para descrever processos complexos de maneira clara e eficiente.**<br><br>
+**Através da modelagem dos casos de uso, foi possível identificar e detalhar os fluxos de trabalho, os atores envolvidos e as diversas condições que o sistema deve contemplar para garantir a integridade dos dados e a funcionalidade do sistema. A utilização de cenários alternativos e as pré e pós-condições de cada processo asseguram que o sistema possa lidar com situações imprevistas de forma robusta, como a duplicidade de dados e a falta de informações obrigatórias.**<br><br><br><br>
+**Além disso, a UML não só facilita a comunicação entre os diferentes stakeholders do projeto, como analistas, desenvolvedores e gestores, mas também proporciona uma visão clara sobre a estrutura e os comportamentos do sistema. Isso se traduz em uma ferramenta poderosa para a construção de sistemas mais organizados, escaláveis e de fácil manutenção.**<br><br>
+**Por fim, a implementação desse sistema com base nos casos de uso descritos certamente contribuirá para uma gestão mais eficiente e integrada das informações da universidade, melhorando a comunicação interna e garantindo a consistência dos dados, o que é fundamental para o bom funcionamento das operações acadêmicas e administrativas.**<br><br>
+
+## REFERENCIAS
+
+**COSTA, C. A.; ALMEIDA, C. E.; SANTOS, E. A aplicação da Linguagem de Modelagem Unificada (UML). Gestão & Produção, São Carlos, v. 8, n. 2, p. 219-235, 2001. Disponível em: <https://www.scielo.br/j/gp/a/RRQQ7mKTFztQXK9Sz7BKtWQ/>. Acesso em: 2 set. 2025.**<br><br>
+
+**BORGES, Elida Neves Mendes. UML para modelagem do ciclo de evasão estudantil. 2019. Trabalho de Conclusão de Curso (Bacharelado em Estatística) – Universidade de Brasília, Brasília, 2019. Disponível em: <https://bdm.unb.br/bitstream/10483/25251/1/2019_ElidaNevesMendesBorges_tcc.pdf>. Acesso em: 2 set. 2025.**<br><br>
+
+**IBM. Diagramas de classes em modelagem UML. [S. l.], [20--]. Disponível em: <https://www.ibm.com/docs/pt-br/rsas/7.5.0?topic=structure-class-diagrams&utm>. Acesso em: 2 set. 2025.**<br><br>
+
+**PROCESSON. Como fazer um diagrama de caso de uso UML. [S. l.], 2025. Disponível em: <https://www.processon.io/pt/blog/make-a-uml-use-case-diagram>. Acesso em: 10 set. 2025.**<br><br>
+
+**ARAÚJO, Diego O.; SCHMITZ, Eber A.; CORRÊA, Alexandre L.; ALENCAR, Antonio J. Elaboração de especificações de casos de uso para linhas de produto de software baseada em fragmentos. In: SIMPÓSIO BRASILEIRO DE COMPONENTES, ARQUITETURAS E REUTILIZAÇÃO DE SOFTWARE (SBCARS), 3., 2009, Rio de Janeiro. Anais [...]. Rio de Janeiro: SBC, 2009. Disponível em: <https://sol.sbc.org.br/index.php/sbcars/article/view/24099>. Acesso em 10 set. 2025.**<br><br>
