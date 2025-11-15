@@ -1,59 +1,29 @@
--- Atualizar pessoa física
-UPDATE Pessoa_Fisica
-SET nome = ?, cpf = ?, data_nascimento = ?, email = ?, telefone = ?
-WHERE id = ?;
+-- Atualizar dados em Pessoa
+UPDATE Pessoa SET nome = 'Novo Nome', endereco = 'Novo Endereço' WHERE id = ...;
 
--- Atualizar pessoa jurídica
-UPDATE Pessoa_Juridica
-SET razao_social = ?, cnpj = ?, email = ?, telefone = ?
-WHERE id = ?;
+-- Atualizar dados em Pessoa Física
+UPDATE PessoaFisica SET cpf = '000.000.000-00', dataNascimento = '2000-01-01' WHERE id = ...;
 
--- Atualizar aluno
-UPDATE Aluno
-SET id_pf = ?, matricula = ?, curso = ?
-WHERE id = ?;
+-- Atualizar dados em Pessoa Jurídica
+UPDATE PessoaJuridica SET cnpj = '00.000.000/0001-00', razaoSocial = 'Nova Razão Social' WHERE id = ...;
 
--- Atualizar professor
-UPDATE Professor
-SET id_pf = ?, especialidade = ?
-WHERE id = ?;
+-- Atualizar dados em Fornecedor
+UPDATE Fornecedor SET produto = 'Novo Produto' WHERE id = ...;
 
--- Atualizar funcionário
-UPDATE Funcionario
-SET id_pf = ?, cargo = ?, salario = ?
-WHERE id = ?;
+-- Atualizar dados em Professor
+UPDATE Professor SET disciplina = 'Nova Disciplina' WHERE id = ...;
 
--- Atualizar fornecedor
-UPDATE Fornecedor
-SET id_pj = ?, tipo = ?
-WHERE id = ?;
+-- Atualizar dados em Aluno
+UPDATE Aluno SET matricula = 'NovaMatricula', curso = 'Novo Curso' WHERE id = ...;
 
--- Atualizar patrimônio
-UPDATE Patrimonio
-SET descricao = ?, estado = ?, valor = ?, data_aquisicao = ?
-WHERE id = ?;
+-- Atualizar dados em Funcionário
+UPDATE Funcionario SET cargo = 'Novo Cargo' WHERE id = ...;
 
--- Atualizar compra
-UPDATE Compra
-SET id_fornecedor = ?, data_compra = ?, valor_total = ?
-WHERE id = ?;
+-- Atualizar dados em Biblioteca
+UPDATE Biblioteca SET nome = 'Nova Biblioteca' WHERE id = ...;
 
--- Atualizar item de compra
-UPDATE Item_Compra
-SET id_compra = ?, descricao = ?, quantidade = ?, valor_unitario = ?
-WHERE id = ?;
+-- Atualizar dados em Livro
+UPDATE Livro SET autor = 'Novo Autor', isbn = 'Novo ISBN', status = 'Novo Status' WHERE id = ...;
 
--- Atualizar livro
-UPDATE Livro
-SET titulo = ?, autor = ?, ano = ?, quantidade = ?
-WHERE id = ?;
-
--- Atualizar empréstimo
-UPDATE Emprestimo
-SET id_livro = ?, id_aluno = ?, data_saida = ?, data_retorno = ?
-WHERE id = ?;
-
--- Atualizar pagamento
-UPDATE Pagamento
-SET id_pf = ?, id_pj = ?, valor = ?, data_pagamento = ?, tipo = ?
-WHERE id = ?;
+-- Atualizar dados em Empréstimo
+UPDATE Emprestimo SET dataEmprestimo = '2025-01-01', dataDevolucao = '2025-01-10', status = 'Novo Status' WHERE id = ...;
