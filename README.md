@@ -1,13 +1,13 @@
 # PROJETO INTEGRADOR: DESENVOLVIMENTO DE SISTEMAS ORIENTADO A OBJETOS - CENTRO UNIVERSITÁRIO SENAC
 
-**Integrantes**
+**Integrantes** <br><br>
 
-**Crisnando Lima de Jesus**
-**Erick Leite Freire**
-**Francisco Orion da Silva Paranhos**
-**Matheus Castro Sena Rosa**
-**Oracio Carvalho Schopping**
-**Ronaldo Luis Alves Gonzaga**
+**Crisnando Lima de Jesus** <br>
+**Erick Leite Freire**<br>
+**Francisco Orion da Silva Paranhos**<br>
+**Matheus Castro Sena Rosa**<br>
+**Oracio Carvalho Schopping**<br>
+**Ronaldo Luis Alves Gonzaga**<br>
 
 ## Resumo
 
