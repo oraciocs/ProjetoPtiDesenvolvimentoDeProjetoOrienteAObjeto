@@ -1,51 +1,55 @@
--- Listar todas as pessoas físicas
-SELECT * FROM Pessoa_Fisica;
+-- ===============================
+-- Consultas gerais
+-- ===============================
 
--- Listar todas as pessoas jurídicas
-SELECT * FROM Pessoa_Juridica;
+-- 1. Listar todos os livros cadastrados
+SELECT id, autor, isbn, status FROM Livro;
 
--- Listar alunos com suas informações pessoais
-SELECT a.*, pf.nome, pf.cpf
-FROM Aluno a
-JOIN Pessoa_Fisica pf ON pf.id = a.id_pf;
+-- 2. Listar apenas os livros disponíveis
+SELECT id, autor, isbn FROM Livro WHERE status = 'Disponível';
 
--- Listar professores com informações pessoais
-SELECT p.*, pf.nome, pf.cpf
-FROM Professor p
-JOIN Pessoa_Fisica pf ON pf.id = p.id_pf;
+-- 3. Consultar todos os empréstimos realizados
+SELECT id, aluno_id, livro_id, dataEmprestimo, dataDevolucao, status FROM Emprestimo;
 
--- Listar funcionários
-SELECT f.*, pf.nome
-FROM Funcionario f
-JOIN Pessoa_Fisica pf ON pf.id = f.id_pf;
+-- 4. Consultar empréstimos em andamento
+SELECT id, aluno_id, livro_id, dataEmprestimo, dataDevolucao
+FROM Emprestimo
+WHERE status = 'Em andamento';
 
--- Listar fornecedores e suas empresas
-SELECT f.*, pj.razao_social
-FROM Fornecedor f
-JOIN Pessoa_Juridica pj ON pj.id = f.id_pj;
+-- 5. Listar alunos e seus cursos
+SELECT Pessoa.nome, Aluno.matricula, Aluno.curso
+FROM Pessoa
+JOIN PessoaFisica ON Pessoa.id = PessoaFisica.id
+JOIN Aluno ON PessoaFisica.id = Aluno.id;
 
--- Listar patrimônio
-SELECT * FROM Patrimonio;
+-- 6. Listar professores e suas disciplinas
+SELECT Pessoa.nome, Professor.disciplina
+FROM Pessoa
+JOIN PessoaFisica ON Pessoa.id = PessoaFisica.id
+JOIN Professor ON PessoaFisica.id = Professor.id;
 
--- Listar compras com fornecedores
-SELECT c.*, pj.razao_social
-FROM Compra c
-JOIN Fornecedor f ON f.id = c.id_fornecedor
-JOIN Pessoa_Juridica pj ON pj.id = f.id_pj;
+-- 7. Listar funcionários e seus cargos
+SELECT Pessoa.nome, Funcionario.cargo
+FROM Pessoa
+JOIN PessoaFisica ON Pessoa.id = PessoaFisica.id
+JOIN Funcionario ON PessoaFisica.id = Funcionario.id;
 
--- Listar itens de uma compra
-SELECT ic.*, c.data_compra
-FROM Item_Compra ic
-JOIN Compra c ON c.id = ic.id_compra;
+-- 8. Listar fornecedores e seus produtos
+SELECT PessoaJuridica.razaoSocial, Fornecedor.produto
+FROM PessoaJuridica
+JOIN Fornecedor ON PessoaJuridica.id = Fornecedor.id;
 
--- Listar livros
-SELECT * FROM Livro;
+-- 9. Consultar livros emprestados por um aluno específico
+SELECT Pessoa.nome AS Aluno, Livro.autor, Livro.isbn, Emprestimo.dataEmprestimo
+FROM Emprestimo
+JOIN Livro ON Emprestimo.livro_id = Livro.id
+JOIN Aluno ON Emprestimo.aluno_id = Aluno.id
+JOIN PessoaFisica ON Aluno.id = PessoaFisica.id
+JOIN Pessoa ON PessoaFisica.id = Pessoa.id
+WHERE Aluno.id = ...;  -- substitua pelo ID do aluno
 
--- Listar empréstimos com aluno e livro
-SELECT e.*, l.titulo, a.matricula
-FROM Emprestimo e
-JOIN Livro l ON l.id = e.id_livro
-JOIN Aluno a ON a.id = e.id_aluno;
-
--- Listar pagamentos
-SELECT * FROM Pagamento;
+-- 10. Consultar quantidade de livros por biblioteca
+SELECT Biblioteca.nome, COUNT(Livro.id) AS total_livros
+FROM Biblioteca
+LEFT JOIN Livro ON Biblioteca.id = Livro.biblioteca_id
+GROUP BY Biblioteca.nome;
