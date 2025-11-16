@@ -1,0 +1,159 @@
+Cadastrar Pessoa Física
+Ator: Gestão Acadêmica
+
+• Pré-condição: O administrador deve estar autenticado e possuir permissão de cadastro.
+
+• Cenário Principal:
+
+
+1. O ator acessa a funcionalidade “Cadastrar Pessoa Física”.
+
+2. O sistema exibe formulário com campos obrigatórios (nome, CPF, endereço, e-mail, telefone).
+
+3. O ator insere os dados e envia a solicitação.
+
+4. O sistema valida duplicidade de CPF.
+
+5. O cadastro é confirmado e armazenado.
+
+
+• Cenários Alternativos:
+
+
+o A1: Caso o CPF já exista, o sistema rejeita e informa duplicidade.
+
+o A2: Se algum campo obrigatório não for preenchido, o sistema solicita correção.
+
+• Pós-condição: Pessoa Física registrada no sistema, disponível para associação a aluno ou professor.
+
+------------------------
+Cadastrar Aluno
+Ator: Gestão Acadêmica
+
+• Pré-condição: Pessoa Física deve estar previamente cadastrada.
+
+• Cenário Principal:
+
+1. O ator seleciona “Cadastrar Aluno”.
+
+2. O sistema solicita vínculo com Pessoa Física existente. 3. São adicionados dados acadêmicos (curso, matrícula, turma). 4. O sistema valida matrícula e registra o aluno. 5. Confirmação exibida ao usuário.
+
+
+• Cenários Alternativos:
+
+o A1: Se a pessoa não estiver cadastrada, o sistema exige cadastro prévio.
+
+o A2: Caso a matrícula já exista, o cadastro é bloqueado.
+
+• Pós-condição: Aluno registrado e habilitado para controle acadêmico.
+---------------------
+Cadastrar Professor
+Ator: Gestão Acadêmica
+
+• Pré-condição: Pessoa Física cadastrada.
+
+
+• Cenário Principal:
+
+1. O ator acessa “Cadastrar Professor”.
+
+2. O sistema solicita vínculo com pessoa existente.
+
+3. Dados acadêmicos são preenchidos (formação, disciplinas, carga horária).
+
+4. O sistema valida e confirma o registro.
+
+
+• Cenários Alternativos:
+
+o A1: Caso a pessoa não exista, cadastro deve ser feito previamente.
+
+o A2: Se já houver vínculo como professor, o sistema rejeita duplicidade.
+
+• Pós-condição: Professor habilitado no sistema.
+---------------------
+Controle Financeiro
+Ator: Gestão Financeira
+
+• Pré-condição: Acesso liberado ao módulo financeiro.
+
+
+• Cenário Principal:
+
+1. O ator acessa relatórios financeiros.
+
+2. O sistema permite lançamento de receitas, despesas e fechamento de caixa.
+
+3. O sistema armazena informações no banco de dados.
+
+
+• Cenários Alternativos:
+
+o A1: Caso haja inconsistência nos dados lançados, sistema solicita revisão.
+
+o A2: Falha de comunicação com o banco de dados, operação é suspensa.
+
+• Pós-condição: Dados financeiros atualizados.
+
+-----------------------
+Controle de Livros / Empréstimos
+Ator: Biblioteca
+
+• Pré-condição: Usuários e livros cadastrados.
+
+• Cenário Principal: Registrar e controlar empréstimos e devoluções.
+
+• Cenários Alternativos:
+
+o A1: Livro indisponível para empréstimo.
+
+o A2: Usuário em situação irregular (atraso ou multa).
+
+• Pós-condição: Acervo atualizado.
+
+-----------------------
+Cadastrar Funcionário / Controlar Funcionários
+Ator: Gestão Administrativa
+
+• Pré-condição: Administrador autenticado.
+
+• Cenário Principal: Registrar funcionários e gerenciar dados funcionais.
+
+• Cenários Alternativos:
+
+o A1: CPF duplicado.
+
+o A2: Falha no registro.
+
+• Pós-condição: Funcionário habilitado para operações administrativas.
+--------------------
+Controle de Patrimônio
+Ator: Gestão Administrativa
+
+• Pré-condição: Acesso concedido ao módulo administrativo.
+
+• Cenário Principal: Registrar bens patrimoniais (equipamentos, móveis, etc.).
+
+• Cenários Alternativos:
+
+o A1: Bem já registrado.
+
+o A2: Dados incompletos ou inválidos.
+
+• Pós-condição: Patrimônio registrado e controlado.
+--------------------
+Controle de Compras
+Ator: Gestão Administrativa
+
+• Pré-condição: Pessoa Jurídica cadastrada.
+
+• Cenário Principal: Registrar fornecedores e compras realizadas.
+
+• Cenários Alternativos:
+
+o A1: Fornecedor inexistente.
+
+o A2: Compra não autorizada pelo orçamento.
+
+• Pós-condição: Fornecedor e compras armazenados corretamente.
+-----------------
