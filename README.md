@@ -111,6 +111,9 @@
 **o A2: Falha de comunicação com o banco de dados, operação é suspensa.**<br><br>
 **• Pós-condição: Dados financeiros atualizados.**<br><br>
 
+**Tela Controle Financeiro**<br><br>
+![Tela Controle Financeiro](/prototipos_interface/13controlefinanceiro.png) <br><br><br>
+
 ## Controle de Livros / Empréstimos
 
 **Ator: Biblioteca**<br><br>
@@ -120,6 +123,9 @@
 **o A1: Livro indisponível para empréstimo.**<br><br>
 **o A2: Usuário em situação irregular (atraso ou multa).**<br><br>
 **• Pós-condição: Acervo atualizado.**<br><br>
+
+**Tela Controle de Livros**<br><br>
+![Tela Controle de Livros](/prototipos_interface/14controledelivros.png) <br><br><br>
 
 ## Cadastrar Funcionário / Controlar Funcionários
 
@@ -131,6 +137,12 @@
 **o A2: Falha no registro.**<br><br>
 **• Pós-condição: Funcionário habilitado para operações administrativas.**<br><br>
 
+**Tela Cadastrar Funcionário**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/11cadastrofuncionarios.png) <br><br><br>
+
+**Tela Buscar Funcionário**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/12buscafuncionario.png) <br><br><br>
+
 ## Controle de Patrimônio
 
 **Ator: Gestão Administrativa**<br><br>
@@ -140,6 +152,9 @@
 **o A1: Bem já registrado.**<br><br>
 **o A2: Dados incompletos ou inválidos.**<br><br>
 **• Pós-condição: Patrimônio registrado e controlado.**<br><br>
+
+**Tela Controle de Patrimonio**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/15controlepatrimonio.png) <br><br><br>
 
 ## Controle de Compras
 
@@ -159,6 +174,9 @@
 
 **Tela Buscar Pessoa Jurídica**<br><br>
 ![Tela Buscar Pessoa Jurídica](/prototipos_interface/8paginadebusca.png) <br><br><br>
+
+**Tela Controle de Compras**<br><br>
+![Tela Sucesso no Cadastro](/prototipos_interface/16controledecompras.png) <br><br><br>
 
 ## Diagrama de Classe
 
